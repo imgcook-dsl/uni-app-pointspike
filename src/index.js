@@ -345,11 +345,11 @@ module.exports = function(schema, option) {
   const generateRender = (schema) => {
     const type = schema.componentName.toLowerCase();
     const className = schema.props && schema.props.className;
-    const classString = className ? ` class="${className}"` : '';
+    const classString = className ? ` class="${_.kebabCase(className)}"` : '';
 
     if (className) {
       styles.push(`
-        .${className} {
+        .${_.kebabCase(className)} {
           ${parseStyleObject(schema.props.style).join('')}
         }
       `);

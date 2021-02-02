@@ -24,7 +24,7 @@
       <div class="ft">
         <div class="block">
           <img class="xianjin" :src="item.user.userImage" />
-          <span class="fashionHome">{{ item.user.userName }}</span>
+          <span class="fashion-home">{{ item.user.userName }}</span>
         </div>
         <div class="group">
           <img
@@ -227,7 +227,7 @@ export default {
   height: 30rpx;
 }
 
-.fashionHome {
+.fashion-home {
   margin-left: 6rpx;
   line-height: 28rpx;
   white-space: nowrap;

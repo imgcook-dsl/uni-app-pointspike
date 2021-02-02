@@ -108,4 +108,152 @@ export default {
   }
 };
 </script>
-<style src="./index.response.css" />
+<style scoped>
+.box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 534rpx;
+}
+
+.bd {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: row;
+  opacity: 1;
+  width: 342rpx;
+  height: 342rpx;
+}
+
+.layer {
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  width: 342rpx;
+  height: 342rpx;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  opacity: 1;
+  width: 342rpx;
+  height: 342rpx;
+}
+
+.wrap {
+  box-sizing: border-box;
+  display: flex;
+  position: absolute;
+  top: 18rpx;
+  left: 18rpx;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 15rpx;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-right: 9rpx;
+  padding-left: 10rpx;
+  height: 30rpx;
+}
+
+.riverdinwei {
+  opacity: 1;
+  width: 14rpx;
+  height: 18rpx;
+}
+
+.distance {
+  margin-left: 4rpx;
+  width: 84rpx;
+  height: 22rpx;
+  line-height: 22rpx;
+  white-space: nowrap;
+  color: #ffffff;
+  font-size: 18rpx;
+  font-weight: 400;
+}
+
+.main {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #ffffff;
+  width: 342rpx;
+  height: 114rpx;
+}
+
+.title {
+  margin-top: 22rpx;
+  width: 300rpx;
+  height: 88rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 44rpx;
+  color: #333333;
+  font-size: 30rpx;
+  font-weight: 400;
+}
+
+.ft {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom-left-radius: 12rpx;
+  border-bottom-right-radius: 12rpx;
+  background-color: #ffffff;
+  padding-right: 17rpx;
+  padding-left: 18rpx;
+  width: 342rpx;
+  height: 78rpx;
+  overflow: hidden;
+}
+
+.block {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  height: 30rpx;
+}
+
+.xianjin {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.fashionHome {
+  margin-left: 6rpx;
+  line-height: 28rpx;
+  white-space: nowrap;
+  color: #666666;
+  font-size: 24rpx;
+  font-weight: 300;
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  height: 30rpx;
+}
+
+.favorite {
+  width: 22rpx;
+  height: 22rpx;
+}
+
+.num {
+  margin-left: 5rpx;
+  line-height: 26rpx;
+  white-space: nowrap;
+  color: #999999;
+  font-size: 22rpx;
+  font-weight: 400;
+}
+</style>

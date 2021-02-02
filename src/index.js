@@ -26,39 +26,6 @@ module.exports = function(schema, option) {
   // styles
   const styles = [];
 
-  // const styles4vw = [];
-
-  // const styles4rem = [];
-
-  // // box relative style
-  // const boxStyleList = [
-  //   'fontSize',
-  //   'marginTop',
-  //   'marginBottom',
-  //   'paddingTop',
-  //   'paddingBottom',
-  //   'height',
-  //   'top',
-  //   'bottom',
-  //   'width',
-  //   'maxWidth',
-  //   'left',
-  //   'right',
-  //   'paddingRight',
-  //   'paddingLeft',
-  //   'marginLeft',
-  //   'marginRight',
-  //   'lineHeight',
-  //   'borderBottomRightRadius',
-  //   'borderBottomLeftRadius',
-  //   'borderTopRightRadius',
-  //   'borderTopLeftRadius',
-  //   'borderRadius'
-  // ];
-
-  // no unit style
-  // const noUnitStyles = [ 'opacity', 'fontWeight' ];
-
   const lifeCycleMap = {
     _constructor: 'created',
     getDerivedStateFromProps: 'beforeUpdate',
@@ -68,19 +35,10 @@ module.exports = function(schema, option) {
     componentWillUnmount: 'beforeDestroy'
   };
 
-  // const width = option.responsive.width || 750;
-  // const viewportWidth = option.responsive.viewportWidth || 375;
-  // const htmlFontsize = viewportWidth ? viewportWidth / 10 : null;
-
   const modConfig = responsive || {
     width: 750,
     height: 1334
   };
-
-  // 1vw = width / 100
-  // const _w = width / 100;
-
-  // const _ratio = width / viewportWidth;
 
   const isExpression = (value) => {
     return /^\{\{.*\}\}$/.test(value);
@@ -161,36 +119,6 @@ module.exports = function(schema, option) {
       key = _.kebabCase(key);
       return `${key}: ${normalizeStyleValue(key, value, modConfig)};`;
     });
-
-
-  // convert to responsive unit, such as vw
-  // const parseStyle = (style, option = {}) => {
-  //   const { toVW, toREM } = option;
-  //   const styleData = [];
-  //   for (let key in style) {
-  //     let value = style[key];
-  //     if (boxStyleList.indexOf(key) != -1) {
-  //       if (toVW) {
-  //         value = (parseInt(value) / _w).toFixed(2);
-  //         value = value == 0 ? value : value + 'vw';
-  //       } else if (toREM && htmlFontsize) {
-  //         const valueNum = typeof value == 'string' ? value.replace(/(px)|(rem)/, '') : value;
-  //         const fontSize = (valueNum * (viewportWidth / width)).toFixed(2);
-  //         value = parseFloat((fontSize / htmlFontsize).toFixed(2));
-  //         value =  value ? `${value}rem` : value;
-  //       } else {
-  //         value = parseInt(value).toFixed(2);
-  //         value = value == 0 ? value : value + 'px';
-  //       }
-  //       styleData.push(`${_.kebabCase(key)}: ${value}`);
-  //     } else if (noUnitStyles.indexOf(key) != -1) {
-  //       styleData.push(`${_.kebabCase(key)}: ${parseFloat(value)}`);
-  //     } else {
-  //       styleData.push(`${_.kebabCase(key)}: ${value}`);
-  //     }
-  //   }
-  //   return styleData.join(';');
-  // };
 
   // parse function, return params and content
   const parseFunction = (func) => {
@@ -353,16 +281,6 @@ module.exports = function(schema, option) {
           ${parseStyleObject(schema.props.style).join('')}
         }
       `);
-      // styles4vw.push(`
-      //   .${className} {
-      //     ${parseStyle(schema.props.style, { toVW: true })}
-      //   }
-      // `);
-      // styles4rem.push(`
-      //   .${className} {
-      //     ${parseStyle(schema.props.style, { toREM: true })}
-      //   }
-      // `);
     }
 
     let xml;
@@ -530,21 +448,6 @@ module.exports = function(schema, option) {
         ),
         panelType: 'vue'
       },
-      // {
-      //   panelName: 'index.css',
-      //   panelValue: prettier.format(`${styles.join('\n')}`, { parser: 'css' }),
-      //   panelType: 'css'
-      // },
-      // {
-      //   panelName: 'index.response.css',
-      //   panelValue: prettier.format(styles4vw.join('\n'), { parser: 'css' }),
-      //   panelType: 'css'
-      // },
-      // {
-      //   panelName: 'index.rem.css',
-      //   panelValue: prettier.format(styles4rem.join('\n'), { parser: 'css' }),
-      //   panelType: 'css'
-      // }
     ],
     renderData: {
       template: template,

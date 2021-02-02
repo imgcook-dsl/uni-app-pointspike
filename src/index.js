@@ -495,6 +495,8 @@ module.exports = function(schema, option) {
   const prettierOpt = {
     parser: 'vue',
     printWidth: 80,
+    htmlWhitespaceSensitivity: 'ignore',
+    vueIndentScriptAndStyle: true,
   };
 
   return {

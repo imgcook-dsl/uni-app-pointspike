@@ -1,72 +1,69 @@
 <template>
-  <div class="box">
-    <div @click="handleClick_1" v-for="(item, index) in loopData" :key="index">
-      <div class="bd">
-        <img
+  <view class="box">
+    <view @click="handleClick_1" v-for="(item, index) in loopData" :key="index"
+      ><view class="bd"
+        ><image
           class="layer"
           src="https://img.alicdn.com/tfs/TB1DDx_rQL0gK0jSZFxXXXWHVXa-684-684.png"
         />
-        <img
+        <image
           class="bg"
           src="https://img.alicdn.com/tfs/TB10TB_rQL0gK0jSZFxXXXWHVXa-684-684.png"
         />
-        <div class="wrap">
-          <img
+        <view class="wrap"
+          ><image
             class="riverdinwei"
             src="https://img.alicdn.com/tfs/TB1UoB9rQL0gK0jSZFAXXcA9pXa-28-36.png"
           />
-          <span class="distance">距离500m</span>
-        </div>
-      </div>
-      <div class="main">
-        <span class="title">{{ item.title }}</span>
-      </div>
-      <div class="ft">
-        <div class="block">
-          <img class="xianjin" :src="item.user.userImage" />
-          <span class="fashion-home">{{ item.user.userName }}</span>
-        </div>
-        <div class="group">
-          <img
+          <text class="distance">距离500m</text>
+        </view></view
+      ><view class="main"
+        ><text class="title">{{ item.title }}</text> </view
+      ><view class="ft"
+        ><view class="block"
+          ><image class="xianjin" :src="item.user.userImage" />
+          <text class="fashion-home">{{ item.user.userName }}</text> </view
+        ><view class="group"
+          ><image
             class="favorite"
             src="https://img.alicdn.com/tfs/TB1pxuarHj1gK0jSZFuXXcrHpXa-46-44.png"
           />
-          <span class="num">{{ item.readCount }}</span>
-        </div>
-      </div>
-    </div>
-  </div>
+          <text class="num">{{ item.readCount }}</text>
+        </view></view
+      ></view
+    ></view
+  >
 </template>
 <script>
-import { fetch } from 'whatwg-fetch';
+import { fetch } from "whatwg-fetch";
 export default {
   data() {
     return {
-      stateData: 'test',
+      stateData: "test",
       loopData: [
         {
-          title: '小户型卫浴怎样才能装得高大上？',
+          title: "小户型卫浴怎样才能装得高大上？",
           coverImage:
-            'https://img.alicdn.com/tfs/TB1Txq6o7T2gK0jSZFkXXcIQFXa-684-684.png',
+            "https://img.alicdn.com/tfs/TB1Txq6o7T2gK0jSZFkXXcIQFXa-684-684.png",
           readCount: 200,
           user: {
             userImage:
-              'https://img.alicdn.com/tfs/TB1DWe6oYj1gK0jSZFOXXc7GpXa-60-60.png',
-            userName: '时尚家居'
+              "https://img.alicdn.com/tfs/TB1DWe6oYj1gK0jSZFOXXc7GpXa-60-60.png",
+            userName: "时尚家居"
           },
-          url: 'https://www.imgcook.com'
+          url: "https://www.imgcook.com"
         },
         {
-          title: '拥有超多功能的40平米简约小公寓了解一下',
+          title: "拥有超多功能的40平米简约小公寓了解一下",
           coverImage:
-            'https://img.alicdn.com/tfs/TB1XRQTo7P2gK0jSZPxXXacQpXa-684-648.png',
+            "https://img.alicdn.com/tfs/TB1XRQTo7P2gK0jSZPxXXacQpXa-684-648.png",
           readCount: 500,
           user: {
             userImage:
-              'https://img.alicdn.com/tfs/TB1DWe6oYj1gK0jSZFOXXc7GpXa-60-60.png',
-            userName: '花花设计工作'
+              "https://img.alicdn.com/tfs/TB1DWe6oYj1gK0jSZFOXXc7GpXa-60-60.png",
+            userName: "花花设计工作"
           },
-          url: 'https://www.imgcook.com/docs'
+          url: "https://www.imgcook.com/docs"
         }
       ],
       constants: {}
@@ -77,8 +74,8 @@ export default {
       return readCount > 300;
     },
     fetch_example() {
-      fetch('https://jsonplaceholder.typicode.com/todos/1', {
-        method: 'GET',
+      fetch("https://jsonplaceholder.typicode.com/todos/1", {
+        method: "GET",
         body: {}
       })
         .then(response => response.json())
@@ -87,11 +84,11 @@ export default {
           return data;
         })
         .catch(e => {
-          console.log('error', e);
+          console.log("error", e);
         });
     },
     dataHandler(dataMap) {
-      console.log('dataHandler 11');
+      console.log("dataHandler 11");
       return dataMap;
     },
     handleClick_1(e) {
@@ -99,12 +96,12 @@ export default {
     }
   },
   created() {
-    console.log('constructor');
+    console.log("constructor");
     this.fetch_example();
     this.dataHandler();
   },
   beforeUpdate() {
-    console.log('getDerivedStateFromProps');
+    console.log("getDerivedStateFromProps");
   }
 };
 </script>

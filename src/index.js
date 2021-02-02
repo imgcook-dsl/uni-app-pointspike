@@ -376,32 +376,32 @@ module.exports = function(schema, option) {
     switch (type) {
       case 'text':
         const innerText = parseProps(schema.props.text, true);
-        xml = `<span${classString}${props}>${innerText}</span> `;
+        xml = `<text ${classString}${props}>${innerText}</text> `;
         break;
       case 'image':
         let source = parseProps(schema.props.src, false);
         if (!source.match('"')) {
           source = `"${source}"`;
-          xml = `<img${classString}${props} :src=${source} /> `;
+          xml = `<image${classString}${props} :src=${source} /> `;
         } else {
-          xml = `<img${classString}${props} src=${source} /> `;
+          xml = `<image${classString}${props} src=${source} /> `;
+        }
+        break;
+      case 'component':
+        if (schema.children && schema.children.length) {
+          xml = `<view${classString}${props}>${transform(schema.children)}</view>`;
+        } else {
+          xml = `<view${classString}${props} />`;
         }
         break;
       case 'div':
       case 'page':
       case 'block':
-      case 'component':
-        if (schema.children && schema.children.length) {
-          xml = `<div${classString}${props}>${transform(schema.children)}</div>`;
-        } else {
-          xml = `<div${classString}${props} />`;
-        }
-        break;
       default:
         if (schema.children && schema.children.length) {
-          xml = `<div${classString}${props}>${transform(schema.children)}</div>`;
+          xml = `<view${classString}${props}>${transform(schema.children)}</view>`;
         } else {
-          xml = `<div${classString}${props} />`;
+          xml = `<view${classString}${props} />`;
         }
     }
 
@@ -495,7 +495,6 @@ module.exports = function(schema, option) {
   const prettierOpt = {
     parser: 'vue',
     printWidth: 80,
-    singleQuote: true
   };
 
   return {

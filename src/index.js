@@ -287,7 +287,7 @@ module.exports = function(schema, option) {
     let props = '';
 
     Object.keys(schema.props).forEach((key) => {
-      if ([ 'className', 'style', 'text', 'src', 'lines' ].indexOf(key) === -1) {
+      if ([ 'className', 'style', 'text', 'src', 'lines', 'source' ].indexOf(key) === -1) {
         props += ` ${parsePropsKey(key, schema.props[key])}=${parseProps(schema.props[key])}`;
       }
     });
@@ -295,6 +295,11 @@ module.exports = function(schema, option) {
       case 'text':
         const innerText = parseProps(schema.props.text, true);
         xml = `<text ${classString}${props}>${innerText}</text> `;
+        break;
+      case 'picture':
+        let picObj = _.get(schema, 'props.source', { uri: '' })
+        xml = `<image${classString}${props} src="${picObj.uri}" /> `;
+        console.log('img xml---->', props)
         break;
       case 'image':
         let source = parseProps(schema.props.src, false);
